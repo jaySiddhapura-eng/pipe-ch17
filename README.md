@@ -1,27 +1,104 @@
-# MyFirstApp
+# Pipes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+## Introduction
 
-## Development server
+1. Pipes are built in feature of Angular
+2. Pipes modify the output while rendering it
+3. Although it does not change the actual variable in the .ts file
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to use Pipe?
 
-## Code scaffolding
+1. Pipe followed by pipe symbol ``` |```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Syntax
 
-## Build
+   ~~~html
+   {{propertyFromTSFile | defaultPipes}}
+   
+   Example: making the property string uppercase before rendering it on template
+   {{serverInstanceType | uppercase}}
+   
+   Example: transform property into date before rendering it 
+   {{server.started | date}}
+   ~~~
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Parameterizing the Pipes 
 
-## Running unit tests
+1. Parameters can be added to the pipe by adding ```:```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Example: add parameter to the date pipe
 
-## Running end-to-end tests
+   ~~~html
+   {{server.started | date:'fullDate'}}
+   parameter must be a string
+   ~~~
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+3. Adding multiple parameters to the pipe by using ```:```
 
-## Further help
+   ~~~html
+   {{server.started | date : 'param1' : 'param2'}}
+   ~~~
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+4. More resources about different kind of pipes : [Link](https://angular.io/api?query=pipe)
+
+## Chaining Multiple Pipes
+
+1. While chaining the pipe, order of the pipe is important
+
+2. Application of the pipe on object starts from left to right
+
+3. Example:
+
+   ~~~html
+   {{server.started | date : 'fullDate' | upperCase}}
+   
+   date pipe will apply first to the server.started property
+   and then upperCase pipe will be applied to the above transformed proerty
+   ~~~
+
+## Creating Custom Pipe
+
+1. Create a pipe which abbreviate the name when it applies to the property
+
+   ~~~html
+   {{server.started | shortner:2}}
+   where 2 is parameter applies to the pipe shortner
+   ~~~
+
+2. Create a file ```shortner.pipe.ts``` in root
+
+   ~~~typescript
+   import { PipeTransform, Pipe } from "@angular/core";
+   
+   @Pipe({
+       name: 'shorten'
+   })
+   export class ShortenPipe implements PipeTransform{
+       
+   	    transform(value: any, limit: number){
+           	if(value.length > limit){
+               	return value.substr(0, limit) + ' ...';
+           	}
+           	return value;
+       	}
+   }
+   ~~~
+
+3. Register this pipe in ```app.module.ts```
+
+   ~~~typescript
+   @NgModule({ 
+       declarations: [ ShortenPipe ]
+   })
+   ~~~
+
+   
+
+
+
+
+
+
+
+
+
