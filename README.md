@@ -9,11 +9,15 @@
 
 ## Introduction
 
+## 	[:arrow_up:](#Table-of-Contents )<br>
+
 1. Pipes are built in feature of Angular
 2. Pipes modify the output while rendering it
 3. Although it does not change the actual variable in the .ts file
 
 ## Pipe Usage
+
+## 	[:arrow_up:](#Table-of-Contents )<br>
 
 1. Pipe followed by pipe symbol ``` |```
 
@@ -30,6 +34,8 @@
    ~~~
 
 ## Parameterizing The Pipes 
+
+## 	[:arrow_up:](#Table-of-Contents )<br>
 
 1. Parameters can be added to the pipe by adding ```:```
 
@@ -50,6 +56,8 @@
 
 ## Chaining Multiple Pipes
 
+## 	[:arrow_up:](#Table-of-Contents )<br>
+
 1. While chaining the pipe, order of the pipe is important
 
 2. Application of the pipe on object starts from left to right
@@ -64,6 +72,8 @@
    ~~~
 
 ## Creating Custom Pipe
+
+## 	[:arrow_up:](#Table-of-Contents )<br>
 
 1. Create a pipe which abbreviate the name when it applies to the property
 
