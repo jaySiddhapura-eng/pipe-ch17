@@ -1,12 +1,19 @@
 # Pipes
 
+## Table of Contents  
+* [Introduction](#Introduction)<br>
+* [Pipe Usage](#Pipe-Usage)<br>
+* [Parameterizing The Pipes ](#Parameterizing-The-Pipes)<br>
+* [Chaining Multiple Pipes](#Chaining-Multiple-Pipes)<br>
+* [Creating Custom Pipe](#Creating-Custom-Pipe)<br>
+
 ## Introduction
 
 1. Pipes are built in feature of Angular
 2. Pipes modify the output while rendering it
 3. Although it does not change the actual variable in the .ts file
 
-## How to use Pipe?
+## Pipe Usage
 
 1. Pipe followed by pipe symbol ``` |```
 
@@ -22,7 +29,7 @@
    {{server.started | date}}
    ~~~
 
-## Parameterizing the Pipes 
+## Parameterizing The Pipes 
 
 1. Parameters can be added to the pipe by adding ```:```
 
